@@ -130,8 +130,8 @@ Test:
 　　确保服务器上已安装Git,Node,MongoDB.
 
 ### 使用
-git clone xxx.git
-cd rootdir
-node bin/www
+- git clone xxx.git
+- cd rootdir
+- node bin/www
 
-then open the chrome and type in 127.0.0.1/3000
+- then open the chrome and type in 127.0.0.1/3000
