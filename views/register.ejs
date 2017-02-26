@@ -1,0 +1,43 @@
+<%- include header.ejs %>
+
+<main class="container">
+  <!-- BEGIN LOGIN SECTION -->
+  <section class="section-account">
+    <div class="card contain-sm style-transparent">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <br/>
+            <span class="text-lg text-bold text-primary">User Register</span>
+            <br/><br/>
+            <form class="form floating-label" accept-charset="utf-8" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username">
+                <label for="username">Username</label>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="password" name="userpwd">
+                <label for="password">Password</label>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="password" name="pwdrepeat">
+                <label for="password">Password</label>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 text-left">
+                </div><!--end .col -->
+                <div class="col-xs-6 text-right">
+                  <button class="btn btn-primary btn-raised" type="submit">Register</button>
+                </div><!--end .col -->
+              </div><!--end .row -->
+            </form>
+          </div><!--end .col -->
+        </div><!--end .row -->
+      </div><!--end .card-body -->
+    </div><!--end .card -->
+  </section>
+  <!-- END LOGIN SECTION -->
+</main>
+</div>
+
+<%- include footer.ejs %>

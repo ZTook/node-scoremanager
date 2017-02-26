@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+  <link type="text/css" rel="stylesheet" href="/css/layout.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/bootstrap.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/animate.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/mdl-zoor-nav.css"/>
+
+  <link type="text/css" rel="stylesheet" href="/material/css/material.css"/>
+  <link type="text/css" rel="stylesheet" href="/material/css/mdlslidenav.css"/>
+  <link type="text/css" rel="stylesheet" href="/material/css/materialadmin.css"/>
+  <link type="text/css" rel="stylesheet" href="/material/css/font-awesome.css"/>
+
+  <script src="/js/jquery-3.1.1.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/vue.min.js"></script>
+
+  <script src="/material/js/material.js"></script>
+  <script src="/material/js/mdlslidenav.js"></script>
+  <script src="/material/js/mdlripple.js"></script>
+
+  <title>Material Design Page</title>
+</head>
+
+<body>
+  <!-- Always shows a header, even in smaller screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="app">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="android-title mdl-layout-title">
+         <h4 class="title-name title-text">学生成绩管理系统</h4>
+        </span>
+        <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+        <!-- Add spacer, to align navigation to the right 使下面的导航按钮靠右对齐　-->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. if want to hide it in small screens, add : mdl-layout--large-screen-only. -->
+        <nav class="mdl-navigation">
+          <!--search-->
+          <ul class="mdl-zoor-search mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-zoor-si mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="fa fa-fw fa-search"></i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field">
+            </div>
+          </ul><!--/search-->
+          <!--notify-->
+          <ul class="mdl-zoor-notify">
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="mdl-zoor-si mdl-button--icon mdl-js-button mdl-button">
+                <!--div class="material-icons">notifications_none</div-->
+                <i class="fa fa-fw fa-bell"></i>
+              </a>
+              <sup class="badge style-danger badge-nav">4</sup>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animation-dock">
+                <li class="dropdown-header">You got 2 message</li>
+                <li><span>message1</span></li>
+                <li><span>message2</span></li>
+              </ul><!--end .dropdown-menu -->
+            </li>
+          </ul><!--/notify-->
+          <!--user-->
+          <% if(!user) { %>
+            <a href="/login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">SignIn</a>
+            <a href="/register" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">SignUp</a>
+          <% }else{ %>
+          <ul class="header-nav header-nav-profile">
+            <!--user logo-->
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="mdl-zoor-ripple">
+                <!--这里也要利用angular改一改-->
+                <img src="/assets/img/user.jpg" alt="..." class="img-circle img-user">
+                <span class="profile-info">{{username}}<small>Administrator</small>
+                </span>
+              <!--span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b-->
+              </a>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animation-dock">
+                <li class="dropdown-header">Config</li>
+                <li><a href="#">My profile</a></li>
+                <li><a href="#">My blog <span class="badge style-danger pull-right">16</span></a></li>
+                <li><a href="#">My appointments</a></li>
+                <li class="divider"></li>
+                <li><a href="/logout"><i class="fa fa-fw fa-sign-out"></i> Logout</a></li>
+              </ul><!--end .dropdown-menu -->
+            </li><!--end .dropdown -->
+          </ul><!-- / user -->
+          <% } %>
+        </nav>
+      </div>
+    </header>
+
+    <div id="wrapper" class="mdl-layout__content">
+      <!--the link below is needed for going to top function-->
+      <a name="top"></a>
+      <!--main content-->
+      <div class="main-content-layout">
+        <!--div class="overlay"></div-->
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse mdl-navbar-top navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+          <ul class="nav sidebar-nav">
+            <li class="sidebar-brand"><a href="#"> 管理面板</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-home"></i> 帐户管理</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-folder"></i> 课程管理</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-file"></i> 成绩管理</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> 网站信息 <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">网站信息</li>
+                <li><a href="#">服务负载</a></li>
+                <li><a href="#">客户邮件</a></li>
+                <li><a href="#">访问统计</a></li>
+                <li><a href="#">主题管理</a></li>
+                <li><a href="#">语言管理</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+            <!-- /#sidebar-wrapper -->

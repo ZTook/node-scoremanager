@@ -1,0 +1,58 @@
+/* SOME DEMO STYLES - NOT REQUIRED */
+body,
+html {
+  background-color: #FAFAFA;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  color: rgba(255, 255, 255, 0.9);
+}
+body p,
+body blockquote {
+  color: rgba(255, 255, 255, 0.7);
+}
+body a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+body a:hover {
+  color: #ffffff;
+}
+
+a {
+  text-decoration:none !important;
+}
+
+li {
+  list-style: none !important;
+}
+
+.gotop {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 120px;
+  z-index: 900;
+}
+
+.mdl-navbar-top {
+  top: 55px !important;
+  border-width: 0 0 1px;
+}
+
+.demo-card-wide.mdl-card {
+  width: 100%;
+  margin-top: 20px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 100px;
+  background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
