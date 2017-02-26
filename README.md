@@ -10,13 +10,7 @@
 
 　　完成度　10% ...
 
-　　采用Nodejs + Express +　Vue ＋ Mongodb, 页面使用Bootstrp栅格式设计, MD风格, 表格使用datatable.js, 图表表现使用highchat.js, 主要有以下特性:
-
-1. 全套功能的成绩管理
-2. 科学统计与图表显示
-3. 后台管理与系统登陆
-4. 信息录入与成绩查询
-5. 关键性数据加密存储
+　　采用Nodejs + Express + Vue + Mongodb, 页面使用Bootstrp栅格式设计, MD风格:
 
 ## Logic
 
@@ -60,24 +54,23 @@
 
 ### scemas
 var users = {
-  "id" : idnum
-  "name" : username
-  "pass" : password
-  "email" : email@xxx.com
-  "major1" : major1name
-  "major2" : major2name
-  "logo" : logo.png
+  "id" : idnum,
+  "name" : username,
+  "pass" : password,
+  "email" : email@xxx.com,
+  "major1" : major1name,
+  "major2" : major2name,
+  "logo" : logo.png,
   "power" : [0:superadmin 1:majoradmin 2:courseadmin 3:student 4:unregist]
   ***对于教师, 需不需要说明其所属专业或课程，貌似不需要，如果需要，该怎么办***
 }
 
 var major = {
-  "id" : idnum
-  "name" : majorname
-  "adminer" : majoradminid
-  "course" : [Array类型]
+  "id" : idnum,
+  "name" : majorname,
+  "adminer" : majoradminid,
+  "course" : [Array类型],
   "logo" : logo.png
-  ***如果用Redis如何解决course的问题***
 }
 
 var course = {
@@ -88,13 +81,13 @@ var course = {
 }
 
 var score = {
-  "id" : scoreid
-  "course" : corusename[按教材算，比如高数分为高数一，高数二]
-  "student" : studentid
-  "teacherid" : teacherid
-  "teachername" : teachername
-  "range" : nice/good/ok/die
-  "required" : yes/no
+  "id" : scoreid,
+  "course" : corusename[按教材算，比如高数分为高数一，高数二],
+  "student" : studentid,
+  "teacherid" : teacherid,
+  "teachername" : teachername,
+  "range" : nice/good/ok/die,
+  "required" : yes/no,
   "date" : [20xx-上|20xx-下]
 }
 
@@ -138,4 +131,7 @@ Test:
 
 ### 使用
 git clone xxx.git
-npm install
+cd rootdir
+node bin/www
+
+then open the chrome and type in 127.0.0.1/3000
