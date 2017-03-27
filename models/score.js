@@ -1,12 +1,10 @@
-
 /*
- 该文件的功能有2点：
- 1. 把新用户注册信息存储于数据库。
- 2. 从数据库读取指定用户的信息的功能
+ 该文件的功能：
+ score的增删改查
 */
 var mongodb = require('./db');//加载数据库模块
 
-//User构造函数，用于创建对象
+//Score构造函数，用于创建对象
 function Score(score) {
     this.username = score.username;
     this.subjectA = score.subjectA;
@@ -86,22 +84,22 @@ Score.update = function update(username, newscore, callback) {
             }
             //从scores集合中查找name属性为username的记录
             collection.update({username: username}, newscore, function(err, doc) {
-            mongodb.close();
-            if (doc) {
-            //封装查询结果为User对象
-            var score = new Score(doc);
-              callback(err, score);
-            }
-            else {
-              callback(err, null);
-            }
+              mongodb.close();
+              if (doc) {
+                //封装查询结果为User对象
+                var score = new Score(doc);
+                callback(err, score);
+              }
+              else {
+                callback(err, null);
+              }
             });
         });
     });
 };
 
-//User对象方法：从数据库中更新指定用户的信息
-Score.delete = function delete(username, callback) {
+//User对象方法：从数据库中删除指定用户的信息
+Score.deleteit = function deleteit(username, callback) {
 	mongodb.open(function(err, db) {
         if (err) {
             return callback(err);
@@ -112,17 +110,19 @@ Score.delete = function delete(username, callback) {
                 mongodb.close();
                 return callback(err);
             }
+
+            console.log("first finished")
             //从scores集合中查找name属性为username的记录
             collection.deleteOne({username: username}, function(err, doc) {
-            mongodb.close();
-            if (doc) {
-            //封装查询结果为User对象
-            var score = new Score(doc);
-              callback(err, score);
-            }
-            else {
-              callback(err, null);
-            }
+              mongodb.close();
+              if (doc) {
+                //封装查询结果为User对象
+                var score = new Score(doc);
+                callback(err, score);
+              }
+              else {
+                callback(err, null);
+              }
             });
         });
     });
